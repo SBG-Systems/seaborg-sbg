@@ -15,7 +15,7 @@ describe('incType', () => {
 
   specify('non-local', () => {
     const xml = `<includes local="no">file.h</includes>`;
-    const md = '<file.h>';
+    const md = '\\<file.h\\>';
     expect(render(xml)).to.equal(md);
   });
 
@@ -27,7 +27,7 @@ describe('incType', () => {
 
   specify('non-local with refid', () => {
     const xml = `<includes local="no" refid="file_12345">file.h</includes>`;
-    const md = '[<file.h>](file_12345.md#file_12345)';
+    const md = '[\\<file.h\\>](file_12345.md#file_12345)';
     expect(render(xml)).to.equal(md);
   });
 
