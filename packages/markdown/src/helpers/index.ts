@@ -81,7 +81,7 @@ export const sectionList = (
     : '';
 
 /** Helper for TODO lists */
-export const todo = (items: string[]) => sectionList('TODO', items);
+export const todo = (items: string[]) => sectionList('TODO', []);
 
 /** Helper for compound label */
 export const compoundLabel = (kind: DoxCompoundKind) => compoundLabels[kind];
