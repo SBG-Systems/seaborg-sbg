@@ -19,6 +19,12 @@ const mappers = (): Mappers => ({
   [$text]: textNode,
 });
 
-// TODO direction attribute
-export default (element: Element) =>
-  joinStrings(applyToChildren(mappers())(element));
+export default (element: Element) => {
+  const {
+    attributes: { direction },
+  } = element;
+
+  const paramName = joinStrings(applyToChildren(mappers())(element));
+
+  return `*[${direction}]* **${paramName}**`;
+}

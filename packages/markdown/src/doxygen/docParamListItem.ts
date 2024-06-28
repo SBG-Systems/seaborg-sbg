@@ -13,7 +13,7 @@ import { Mappers, applyToChildrenGrouped } from '../mappers';
 import { docParamNameList, descriptionType } from '.';
 
 const template = ({ parameternamelist, parameterdescription }: any) =>
-  `**${parameternamelist}**` +
+  parameternamelist +
   (parameterdescription ? `: ${parameterdescription}` : '');
 
 const mappers = (): Mappers => ({
