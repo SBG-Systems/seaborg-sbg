@@ -4,7 +4,9 @@ import { Mappers, applyToChildrenGrouped } from '../../mappers';
 import { docParaType } from '..';
 
 const template = ({ para }: any) => `
-?> ${para ? para.join('\\\n') : ''}
+:::note
+${para ? para.join('\\\n') : ''}
+:::
 `;
 
 const mappers = (): Mappers => ({

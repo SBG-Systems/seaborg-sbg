@@ -15,21 +15,14 @@ describe('attention', () => {
 
   specify('empty', () => {
     const xml = `<simplesect kind="attention"></simplesect>`;
-    const md = `
-!> **Attention** \\
-
-`;
+    const md = `\n:::danger\n\n:::\n`;
     expect(render(xml)).to.equal(md);
   });
   specify('one paragraph', () => {
     const xml = `<simplesect kind="attention">
           <para>First paragraph.</para>
       </simplesect>`;
-    const md = `
-!> **Attention** \\
-First paragraph.
-
-`;
+    const md = `\n:::danger\nFirst paragraph.\n:::\n`;
     expect(render(xml)).to.equal(md);
   });
   specify('several paragraphs', () => {
@@ -37,13 +30,7 @@ First paragraph.
           <para>First paragraph.</para>
           <para>Second paragraph.</para>
       </simplesect>`;
-    const md = `
-!> **Attention** \\
-First paragraph.
-\\
-Second paragraph.
-
-`;
+    const md = `\n:::danger\nFirst paragraph.\\\nSecond paragraph.\n:::\n`;
     expect(render(xml)).to.equal(md);
   });
 });
