@@ -12,14 +12,16 @@ import { nonEmpty } from '../operators';
 import { textNode } from '../generic';
 import { docCmdGroup } from '.';
 import { inline as seeInline } from './docSimpleSectType/see';
-import { joinLines, section } from '../helpers';
+import { joinLines, section, md } from '../helpers';
 
 const seeTemplate = ({ see }: any) =>
   see && see.length ? section('See also', see.join(', ')) + '\n' : '';
 
 const mappers = (): Mappers => ({
   ...docCmdGroup(),
-  [$text]: textNode,
+  [$text]: (value) => {
+      return md(textNode(value));
+  }
 });
 
 /** Filter for simplesect of a given kind */
