@@ -24,9 +24,7 @@ export default (element: Element) => {
     attributes: { refid, local },
   } = element;
   const text = joinStrings(applyToChildren(mappers())(element));
-  return local === 'yes'
-    ? refid
-      ? ref(refid, 'compound', text)
-      : text
-    : `<${text}>`;
+  const textLabel = (local === 'yes'? `"${text}"` : `\<${text}\>`);
+
+  return refid ? ref(refid, 'compound', textLabel) : textLabel;
 };
