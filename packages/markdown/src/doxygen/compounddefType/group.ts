@@ -13,12 +13,13 @@ import {
   templateContext,
 } from '.';
 
-const template = ({ id, title, innergroup, TODO, ...context }: any) =>
+const template = ({ id, title, innergroup, innerfile, TODO, ...context }: any) =>
   joinParagraphs([
     compounddefTitle(id, title),
     compounddefBadges(context),
     compounddefDescription(context),
     compounddefList({ list: innergroup, label: 'Submodules' }),
+	compounddefList({ list: innerfile, label: 'Files' }),
     compounddefSections(context),
     todo(TODO),
   ]);
