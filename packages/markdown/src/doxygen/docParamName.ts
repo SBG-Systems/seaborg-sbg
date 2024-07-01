@@ -25,6 +25,6 @@ export default (element: Element) => {
   } = element;
 
   const paramName = joinStrings(applyToChildren(mappers())(element));
-
-  return `*[${direction}]* **${paramName}**`;
+  
+  return `${direction ? `*[${direction}]* ` : ''}**${paramName}**`;
 }

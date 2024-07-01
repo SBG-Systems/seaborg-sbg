@@ -22,7 +22,7 @@ describe('note', () => {
     const xml = `<simplesect kind="note">
           <para>First paragraph.</para>
       </simplesect>`;
-    const md = `\n:::note\nFirst paragraph.\n:::\n`;
+    const md = `\n:::note\nFirst paragraph.\n\n:::\n`;
     expect(render(xml)).to.equal(md);
   });
   specify('several paragraphs', () => {
@@ -30,7 +30,7 @@ describe('note', () => {
           <para>First paragraph.</para>
           <para>Second paragraph.</para>
       </simplesect>`;
-    const md = `\n:::note\nFirst paragraph.\\\nSecond paragraph.\n:::\n`;
+    const md = `\n:::note\nFirst paragraph.\n\\\nSecond paragraph.\n\n:::\n`;
     expect(render(xml)).to.equal(md);
   });
 });
