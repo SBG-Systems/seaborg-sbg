@@ -12,7 +12,7 @@ import { nonEmpty } from '../operators';
 import { textNode } from '../generic';
 import { docCmdGroup } from '.';
 import { inline as seeInline } from './docSimpleSectType/see';
-import { joinLines, section, md } from '../helpers';
+import { joinStrings, section, md } from '../helpers';
 
 const seeTemplate = ({ see }: any) =>
   see && see.length ? section('See also', see.join(', ')) + '\n' : '';
@@ -20,7 +20,7 @@ const seeTemplate = ({ see }: any) =>
 const mappers = (): Mappers => ({
   ...docCmdGroup(),
   [$text]: (value) => {
-      return md(textNode(value));
+    return md(textNode(value));
   }
 });
 
@@ -44,7 +44,7 @@ export default (element: Element) => {
     filter(nonEmpty)
   );
 
-  const para = joinLines(paraMapper(element.children));
+  const para = joinStrings(paraMapper(element.children)) + '\n';
   const see = seeMapper(element.children);
 
   return para + seeTemplate({ see });
